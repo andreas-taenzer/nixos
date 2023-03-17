@@ -11,8 +11,10 @@
     inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
-  ];
+     ./apps/cli
+     ./apps/wm
+     ./themes
+];
 
   nixpkgs = {
     # You can add overlays here
@@ -53,23 +55,25 @@
 	unzip unrar zip
 	kitty
 	pywal
+	feh
+	sxhkd
+	pamixer
+	dmenu
+	rxvt-unicode
+	polybar
+	eww
 	# tunes
 	mpd ncmpcpp
 	# net
-	firefox	
+	firefox
+	# productivity
+	vscode
 	 ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git = {
-  	enable = true;
-	userName = "andreas-taenzer";
-	userEmail = "andreas.h.taenzer@dartmouth.edu";
-	};
-
   programs.neovim.enable = true;
-  programs.bash.enable = true;
-
+  
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
