@@ -6,18 +6,11 @@ imports = [
     inputs.hyprland.homeManagerModules.default
   ];
 
-  home.sessionVariables = rec {
-    LIBVA_DRIVER_NAME = "nvidia";
-    XDG_SESSION_TYPE = "wayland";
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-   WLR_NO_HARDWARE_CURSORS = "1";
-  };
 
-  home.packages = with pkgs; [
-    inputs.hyprland-contrib.packages.${system}.grimblast
-    swaybg
-    swayidle
+home.packages = with pkgs; [
+  inputs.hyprland-contrib.packages.${system}.grimblast
+  swaybg
+  hyprpaper 
     # TODO
     # inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland
   ];
@@ -29,6 +22,8 @@ imports = [
     hidpi = true;
     };
     nvidiaPatches = true;
+    systemdIntegration = true;
+    extraConfig = builtins.readFile ./hyprland.conf;
   };  
 
 

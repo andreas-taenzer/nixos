@@ -15,7 +15,8 @@
       "super + {_,shift + }w" = "firefox {_,--private-window}";
 
       # Volume control
-      "XF86Audio{RaiseVolume,LowerVolume,Mute}" = "pamixer {-i 10, -d 10, -t}";
+      "XF86Audio{RaiseVolume,LowerVolume}" = "pamixer {-i 10, -d 10}";
+	"XF86AudioMute" = "pamixer -t";
 
       #Brightness control
       "XF86MonBrightness{Up,Down}" = "light {-A 5,-U 5}";

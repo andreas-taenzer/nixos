@@ -14,6 +14,7 @@
      ./apps/cli
      ./apps/wm
      ./themes
+     ./apps/wayland
 ];
 
   nixpkgs = {
@@ -62,10 +63,12 @@
 	rxvt-unicode
 	polybar
 	eww
+	git
 	# tunes
-	mpd ncmpcpp
+	# mpd ncmpcpp
 	# net
-	firefox
+	firefox-wayland
+  chromium
 	# productivity
 	vscode
 	 ];
@@ -73,6 +76,15 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.neovim.enable = true;
+
+  # PATH
+  home.sessionPath = [
+    "#HOME/bin"
+    "$HOME/.local/bin"
+  ];
+
+  # MPD
+  services.mpd.enable = true;
   
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

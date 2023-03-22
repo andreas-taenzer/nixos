@@ -3,7 +3,8 @@
 imports = [
     ./bspwm.nix
     ./sxhkd.nix
-    ./hyprland.nix
-  ];
+    ./sway.nix
+    ./hyprland
+];
 
 }

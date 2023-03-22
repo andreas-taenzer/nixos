@@ -63,7 +63,8 @@
   # AKI
 
   # kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -94,10 +95,14 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  
+  # polkit
+  security.polkit.enable = true;
 
   # NVIDIA sucks
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;
+  hardware.opengl.driSupport =true;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.nvidia.prime = {
       offload.enable = true;
@@ -123,8 +128,6 @@
   services.xserver.displayManager.startx.enable = true;
   
   services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.windowManager.herbstluftwm.enable = true;
-  services.xserver.windowManager.bspwm.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -161,11 +164,6 @@
   ntfs3g
 ];
   
-  # read my config files
-  environment.sessionVariables = rec {
-    XDG_CONFIG_HOME = "\${HOME}/.config";
-    XDG_CACHE_HOME = "\${HOME}/.cache";
-    };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.aki = {

@@ -5,6 +5,7 @@
     # Nixpkgs
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
@@ -71,7 +72,7 @@
             # > main nixos configuration file <
             ./nixos/configuration.nix
             ./modules/nixos
-	    hyprland.nixosModules.default
+	          # hyprland.nixosModules.default
 	    ];
         };
       };
@@ -86,8 +87,8 @@
             ./home-manager/home.nix
             ./home-manager/apps/cli
             ./home-manager/apps/wm
-	    ./home-manager/themes
-	];
+	          ./home-manager/themes
+	          ];
         };
       };
     };

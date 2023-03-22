@@ -17,12 +17,12 @@
       ];
       monitors = {
         eDP-1 = [
-          "1"
-          "2"
-          "3"
-          "4"
-          "5"
-          "6"
+          "I"
+          "II"
+          "III"
+          "IV"
+          "V"
+          "VI"
         ];
       };
       rules = {
@@ -30,40 +30,29 @@
           state = "floating";
           center = true;
         };
-        "URxvt" = {
-          follow = true;
-          desktop = "1";
-        };
         "firefox" = {
-          desktop = "2";
           follow = true;
+          desktop = ^2;
         };
-        "kitty:ncmpcpp" = {
-          desktop = "3";
-          state  = "floating";
-	        rectangle = "1300x800+2500+100";
-        };
-        "kitty:cava" = {
-          desktop = "3";
+        "nemo" = {
           state = "floating";
-          rectangle = "1300x800+2500+1000";
+          center = true;
         };
       };
-
       settings = {
         # pointer_modifier = "mod1";
         left_padding = 120;
         border_width = 4;
         window_gap = 20;
-        split_ratio = 0.65;
+        split_ratio = 0.5;
         borderless_monocle = true;
         gapless_monocle = true;
         focus_follows_pointer = true;
         normal_border_color = "$background";
         focused_border_color = "$background";
         urgent_border_color = "$background";
-        active_border_color = "$color2";
-
+        active_border_color = "$color15";
+        
       };
       extraConfig = ''
       '';
@@ -71,5 +60,6 @@
         systemctl --user start bspwm-session.target 
       '';
     };
+  };
   };
 }
